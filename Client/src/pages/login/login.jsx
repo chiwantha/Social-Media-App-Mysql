@@ -1,4 +1,5 @@
 import LoginImg from "../../assets/images/login.png";
+import { Link } from "react-router-dom";
 
 const login = () => {
   return (
@@ -23,9 +24,11 @@ const login = () => {
             ut, id dolores magnam optio.
           </p>
           <span className="text-sm">Dont you have an Account ?</span>
-          <button className="w-1/2 p-3 bg-white text-purple-500 cursor-pointer hover:scale-105 transition-transform">
-            Register
-          </button>
+          <Link to="/register">
+            <button className="w-1/2 p-3 bg-white text-purple-500 cursor-pointer hover:scale-105 transition-transform">
+              Register
+            </button>
+          </Link>
         </div>
         {/* right */}
         <div className="flex-1 p-12 flex flex-col gap-8 justify-center">
@@ -41,9 +44,11 @@ const login = () => {
               placeholder="password"
               className="outline-none border-b border-gray-500 py-5 px-2.5"
             />
-            <button className="w-1/2 p-3 text-white bg-purple-500 cursor-pointer hover:scale-105 transition-transform">
-              Login
-            </button>
+            <Link to="/home">
+              <button className="w-1/2 p-3 text-white bg-purple-500 cursor-pointer hover:scale-105 transition-transform">
+                Login
+              </button>
+            </Link>
           </form>
         </div>
       </div>

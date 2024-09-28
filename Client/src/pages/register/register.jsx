@@ -1,4 +1,5 @@
 import registerImg from "../../assets/images/register.jpg";
+import { Link } from "react-router-dom";
 
 const register = () => {
   return (
@@ -23,9 +24,11 @@ const register = () => {
             ut, id dolores magnam optio.
           </p>
           <span className="text-sm">Do you have an Account ?</span>
-          <button className="w-1/2 p-3 bg-white text-purple-500 cursor-pointer hover:scale-105 transition-transform">
-            Login
-          </button>
+          <Link to="/login">
+            <button className="w-1/2 p-3 bg-white text-purple-500 cursor-pointer hover:scale-105 transition-transform">
+              Login
+            </button>
+          </Link>
         </div>
         {/* right */}
         <div className="flex-1 p-12 flex flex-col gap-8 justify-center">
