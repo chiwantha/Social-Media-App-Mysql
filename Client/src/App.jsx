@@ -1,5 +1,13 @@
+import Login from "./pages/login/login";
+import Register from "./pages/register/register";
+
 function App() {
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+  return (
+    <div className="select-none">
+      <Login />
+      <Register />
+    </div>
+  );
 }
 
 export default App;
