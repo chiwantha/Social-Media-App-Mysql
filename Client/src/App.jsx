@@ -1,5 +1,6 @@
 import Login from "./pages/login/login";
 import Register from "./pages/register/register";
+import "./style.scss";
 import {
   createBrowserRouter,
   Navigate,
@@ -25,7 +26,7 @@ function App() {
 
   const Layout = () => {
     return (
-      <div className="">
+      <div className="theme-dark">
         <Navbar />
         <div className="flex">
           <Leftbar />

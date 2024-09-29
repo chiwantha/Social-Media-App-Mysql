@@ -81,7 +81,7 @@ const LEFT_BAR_MENU = [
 const Leftbar = () => {
   return (
     <div
-      className="overflow-y-scroll overflow-x-hidden sticky top-[56px] h-[calc(100vh-56px)] scrollbar-hide"
+      className="overflow-y-scroll dark:bg-[#222] dark:text-white overflow-x-hidden sticky top-[56px] h-[calc(100vh-56px)] scrollbar-hide"
       style={{ flex: 2 }}
     >
       <div className="container p-5">
@@ -107,7 +107,7 @@ const Leftbar = () => {
             ) : (
               <div
                 key={index}
-                className="flex items-center gap-2.5 hover:font-bold"
+                className="flex items-center gap-2.5 hover:font-bold dark:hover:text-neutral-400"
               >
                 <img
                   src={item.icon}

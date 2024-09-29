@@ -112,12 +112,12 @@ const USER_MAP = [
 const Rightbar = () => {
   return (
     <div
-      className="overflow-y-scroll overflow-x-hidden sticky top-[56px] h-[calc(100vh-56px)] scrollbar-hide"
+      className="overflow-y-scroll overflow-x-hidden sticky dark:bg-[#555] bg-[#f6f3f3] top-[56px] h-[calc(100vh-56px)] scrollbar-hide"
       style={{ flex: 3 }}
     >
-      <div className="container p-5 space-y-5">
+      <div className="container p-5 space-y-5 dark:text-white">
         {/* first item */}
-        <div className=" space-y-5 p-6 bg-white rounded-xl shadow-md">
+        <div className=" space-y-5 p-6 bg-white dark:bg-[#222] rounded-xl shadow-md">
           <span className="text-gray">Suggestions For You</span>
           {/* user-card */}
           {USER_MAP.slice(0, 2).map((user, index) => (
@@ -143,7 +143,7 @@ const Rightbar = () => {
           {/* user-card */}
         </div>
         {/* second item */}
-        <div className=" space-y-5 p-6 bg-white rounded-xl shadow-md">
+        <div className=" space-y-5 p-6 bg-white dark:bg-[#222] rounded-xl shadow-md">
           <span className="text-gray">Notifications</span>
           {/* user-card */}
           {USER_MAP.slice(0, 4).map((user, index) => (
@@ -154,8 +154,10 @@ const Rightbar = () => {
                   alt="UserProfile"
                   className="w-[40px] h-[40px] rounded-full object-cover object-center"
                 />
-                <p className="font-light text-sm text-gray-500">
-                  <span className="font-medium text-black">{user.name}</span>{" "}
+                <p className="font-light text-sm text-gray-500 dark:text-neutral-300">
+                  <span className="font-medium text-black dark:text-white">
+                    {user.name}
+                  </span>{" "}
                   {user.notification}
                 </p>
               </div>
@@ -166,7 +168,7 @@ const Rightbar = () => {
           {/* user-card */}
         </div>
         {/* third item */}
-        <div className=" space-y-5 p-6 bg-white rounded-xl shadow-md">
+        <div className=" space-y-5 p-6 bg-white dark:bg-[#222] rounded-xl shadow-md">
           <span className="text-gray">Online Friends</span>
           {/* user-card */}
           {USER_MAP.map(
@@ -180,7 +182,7 @@ const Rightbar = () => {
                       className="w-[40px] h-[40px] rounded-full object-cover object-center "
                     />
                     <div className="w-3 h-3 bg-green-500 rounded-full absolute top-0 left-[30px]" />
-                    <span className="font-medium text-black">{user.name}</span>
+                    <span className="font-medium">{user.name}</span>
                   </div>
                 </div>
               )
