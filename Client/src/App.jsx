@@ -29,7 +29,9 @@ function App() {
         <Navbar />
         <div className="flex">
           <Leftbar />
-          <Outlet />
+          <div className="" style={{ flex: 6 }}>
+            <Outlet />
+          </div>
           <Rightbar />
         </div>
       </div>

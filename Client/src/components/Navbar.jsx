@@ -11,7 +11,7 @@ import LoginImg from "../assets/images/login.png";
 
 const Navbar = () => {
   return (
-    <div className=" flex justify-between items-center py-2.5 px-5 h-14 border-b border-gray-300">
+    <div className="sticky top-0 flex justify-between items-center py-2.5 px-5 h-14 border-b bg-white border-gray-300">
       {/* left */}
       <div className="flex items-center gap-7">
         <Link to="/home">
