@@ -12,6 +12,7 @@ import { useState } from "react";
 
 const Navbar = () => {
   const [isDark, setisDark] = useState(false);
+
   function toggleDarkMode() {
     document.documentElement.classList.toggle("dark");
     setisDark(!isDark);
