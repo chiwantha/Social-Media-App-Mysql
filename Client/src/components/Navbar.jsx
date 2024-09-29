@@ -7,16 +7,15 @@ import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import { Link } from "react-router-dom";
-import LoginImg from "../assets/images/login.png";
-import { useState } from "react";
+import { useContext } from "react";
+import { DarkModeContext } from "../context/darkModeContext";
+import { AuthContext } from "../context/authContext";
 
 const Navbar = () => {
-  const [isDark, setisDark] = useState(false);
+  const { darkMode, toggle } = useContext(DarkModeContext);
+  const { currentUser } = useContext(AuthContext);
 
-  function toggleDarkMode() {
-    document.documentElement.classList.toggle("dark");
-    setisDark(!isDark);
-  }
+  // console.log(`url(../assets/images/${currentUser.image})`);
 
   return (
     <div className="sticky top-0 flex justify-between items-center py-2.5 px-5 h-14 border-b dark:text-white bg-white dark:bg-[#222] dark:border-neutral-600 border-gray-300">
@@ -26,8 +25,8 @@ const Navbar = () => {
           <span className="font-bold text-2xl text-blue-800">MY-STACK</span>
         </Link>
         <HomeOutlinedIcon />
-        <div className="cursor-pointer" onClick={toggleDarkMode}>
-          {isDark ? <WbSunnyOutlinedIcon /> : <DarkModeOutlinedIcon />}
+        <div className="cursor-pointer" onClick={toggle}>
+          {darkMode ? <WbSunnyOutlinedIcon /> : <DarkModeOutlinedIcon />}
         </div>
         <GridViewOutlinedIcon />
         <div className="flex items-center gap-2.5 border border-gray-300 p-1 rounded-lg">
@@ -46,11 +45,11 @@ const Navbar = () => {
         <NotificationsOutlinedIcon />
         <div className="flex items-center gap-2 font-medium">
           <img
-            src={LoginImg}
+            src={`/${currentUser.image}`}
             alt="UserProfile"
             className="w-[30px] h-[30px] rounded-full object-cover object-center"
           />
-          <span>Kasun Chiwantha</span>
+          <span>{currentUser.name}</span>
         </div>
       </div>
     </div>

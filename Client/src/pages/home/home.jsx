@@ -1,12 +1,13 @@
-const home = () => {
-  const headings = [];
+import Stories from "../../components/stories";
+import Posts from "../../components/posts";
 
-  for (let i = 0; i <= 100; i++) {
-    headings.push(<h1 key={i}>Home</h1>);
-  }
+const home = () => {
   return (
-    <div className="dark:bg-[#555] bg-[#f6f3f3] dark:text-white py-5 px-16">
-      {headings}
+    <div className="dark:bg-[#555] bg-[#f6f3f3] dark:text-white py-5 px-16 space-y-5">
+      {/* stories */}
+      <Stories />
+      {/* Posts */}
+      <Posts />
     </div>
   );
 };

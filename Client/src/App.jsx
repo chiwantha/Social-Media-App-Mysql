@@ -12,9 +12,22 @@ import Leftbar from "./components/Leftbar";
 import Rightbar from "./components/Rightbar";
 import Home from "./pages/home/home";
 import Profile from "./pages/profile/profile";
+import { useContext, useEffect } from "react";
+import { DarkModeContext } from "./context/darkModeContext";
+import { AuthContext } from "./context/authContext";
 
 function App() {
-  const currentUser = true;
+  const { currentUser } = useContext(AuthContext);
+
+  const { darkMode } = useContext(DarkModeContext);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  });
 
   // eslint-disable-next-line react/prop-types
   const ProtectRoute = ({ children }) => {

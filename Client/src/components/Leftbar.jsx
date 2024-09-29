@@ -1,5 +1,3 @@
-import LoginImg from "../assets/images/login.png";
-
 import Friends from "../assets/leftbar/1.png";
 import Groups from "../assets/leftbar/2.png";
 import Market from "../assets/leftbar/3.png";
@@ -13,6 +11,8 @@ import Messages from "../assets/leftbar/10.png";
 import Tutorials from "../assets/leftbar/11.png";
 import Courses from "../assets/leftbar/12.png";
 import Fund from "../assets/leftbar/13.png";
+import { useContext } from "react";
+import { AuthContext } from "../context/authContext";
 
 const LEFT_BAR_MENU = [
   {
@@ -79,6 +79,7 @@ const LEFT_BAR_MENU = [
 ];
 
 const Leftbar = () => {
+  const { currentUser } = useContext(AuthContext);
   return (
     <div
       className="overflow-y-scroll dark:bg-[#222] dark:text-white overflow-x-hidden sticky top-[56px] h-[calc(100vh-56px)] scrollbar-hide"
@@ -89,11 +90,11 @@ const Leftbar = () => {
           {/* user */}
           <div className="flex items-center gap-2.5 font-medium">
             <img
-              src={LoginImg}
+              src={`/${currentUser.image}`}
               alt="UserProfile"
               className="w-[30px] h-[30px] rounded-full object-cover object-center"
             />
-            <span className="text-sm">Kasun Chiwantha</span>
+            <span className="text-sm">{currentUser.name}</span>
           </div>
           {/* Items */}
           {LEFT_BAR_MENU.map((item, index) =>

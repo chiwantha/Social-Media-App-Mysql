@@ -1,7 +1,16 @@
+import { useContext } from "react";
 import LoginImg from "../../assets/images/login.png";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/authContext";
 
 const login = () => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const { login } = useContext(AuthContext);
+
+  const handleLogin = () => {
+    login();
+  };
+
   return (
     <div className="h-screen bg-[rgb(193,190,255)] flex  items-center justify-center">
       <div className="flex w-[95%] lg:w-1/2 rounded-lg bg-white min-h-[600px] flex-col md:flex-row overflow-hidden shadow-2xl">
@@ -44,8 +53,12 @@ const login = () => {
               placeholder="password"
               className="outline-none border-b border-gray-500 py-5 px-2.5"
             />
+
             <Link to="/home">
-              <button className="w-1/2 p-3 text-white bg-purple-500 cursor-pointer hover:scale-105 transition-transform">
+              <button
+                onClick={handleLogin}
+                className="w-1/2 p-3 text-white bg-purple-500 cursor-pointer hover:scale-105 transition-transform"
+              >
                 Login
               </button>
             </Link>
