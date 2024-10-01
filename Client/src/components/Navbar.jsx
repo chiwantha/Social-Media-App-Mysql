@@ -18,7 +18,10 @@ const Navbar = () => {
   // console.log(`url(../assets/images/${currentUser.image})`);
 
   return (
-    <div className="sticky top-0 flex justify-between items-center py-2.5 px-5 h-14 border-b dark:text-white bg-white dark:bg-[#222] dark:border-neutral-600 border-gray-300">
+    <div
+      className="sticky top-0 flex justify-between items-center py-2.5 px-5 h-14 border-b
+     dark:text-white bg-white dark:bg-[#222] dark:border-neutral-600 border-gray-300 z-[999]"
+    >
       {/* left */}
       <div className="flex items-center gap-7">
         <Link to="/home">
