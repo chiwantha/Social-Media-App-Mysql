@@ -52,6 +52,10 @@ function App() {
       ),
       children: [
         {
+          path: "/", // This is the default path
+          element: <Home />, // Redirect to /home
+        },
+        {
           path: "/home",
           element: <Home />,
         },

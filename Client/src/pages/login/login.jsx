@@ -1,15 +1,34 @@
-import { useContext } from "react";
+/* eslint-disable react-hooks/rules-of-hooks */
+import { useContext, useState } from "react";
 import LoginImg from "../../assets/images/login.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/authContext";
 
 const login = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { login } = useContext(AuthContext);
+  const [inputs, setinputs] = useState({
+    username: "",
+    password: "",
+  });
+  const [err, seterr] = useState(null);
+  const navigate = useNavigate();
 
-  const handleLogin = () => {
-    login();
+  const handleChange = (e) => {
+    setinputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      await login(inputs);
+      navigate("/");
+    } catch (err) {
+      seterr(err.response.data);
+    }
+  };
+
+  console.log(err);
 
   return (
     <div className="h-screen bg-[rgb(193,190,255)] flex  items-center justify-center">
@@ -47,21 +66,23 @@ const login = () => {
               type="text"
               placeholder="username"
               className="outline-none border-b border-gray-500 py-5 px-2.5"
+              name="username"
+              onChange={handleChange}
             />
             <input
               type="password"
               placeholder="password"
               className="outline-none border-b border-gray-500 py-5 px-2.5"
+              name="password"
+              onChange={handleChange}
             />
-
-            <Link to="/home">
-              <button
-                onClick={handleLogin}
-                className="w-1/2 p-3 text-white bg-purple-500 cursor-pointer hover:scale-105 transition-transform"
-              >
-                Login
-              </button>
-            </Link>
+            {err && err}
+            <button
+              onClick={handleLogin}
+              className="w-1/2 p-3 text-white bg-purple-500 cursor-pointer hover:scale-105 transition-transform"
+            >
+              Login
+            </button>
           </form>
         </div>
       </div>

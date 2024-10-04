@@ -1,7 +1,35 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+import { useState } from "react";
 import registerImg from "../../assets/images/register.jpg";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const register = () => {
+  const [inputs, setInputs] = useState({
+    username: "",
+    emain: "",
+    password: "",
+    name: "",
+  });
+
+  const [err, seterr] = useState(null);
+
+  const handleChange = (e) => {
+    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleClick = async (e) => {
+    e.preventDefault();
+
+    try {
+      await axios.post("http://localhost:8800/server/auth/register", inputs);
+    } catch (err) {
+      seterr(err.response.data);
+    }
+  };
+
+  // console.log(err);
+
   return (
     <div className="h-screen bg-[rgb(193,190,255)] flex  items-center justify-center">
       <div className="flex w-[95%] lg:w-1/2 rounded-lg bg-white min-h-[600px] flex-col md:flex-row-reverse overflow-hidden shadow-2xl">
@@ -38,23 +66,35 @@ const register = () => {
               type="text"
               placeholder="username"
               className="outline-none border-b border-gray-500 py-5 px-2.5"
+              name="username"
+              onChange={handleChange}
             />
             <input
               type="email"
               placeholder="email"
               className="outline-none border-b border-gray-500 py-5 px-2.5"
+              name="email"
+              onChange={handleChange}
             />
             <input
               type="password"
               placeholder="password"
               className="outline-none border-b border-gray-500 py-5 px-2.5"
+              name="password"
+              onChange={handleChange}
             />
             <input
               type="text"
               placeholder="name"
               className="outline-none border-b border-gray-500 py-5 px-2.5"
+              name="name"
+              onChange={handleChange}
             />
-            <button className="w-1/2 p-3 text-white bg-purple-500 cursor-pointer hover:scale-105 transition-transform">
+            {err && err}
+            <button
+              onClick={handleClick}
+              className="w-1/2 p-3 text-white bg-purple-500 cursor-pointer hover:scale-105 transition-transform"
+            >
               Register
             </button>
           </form>
