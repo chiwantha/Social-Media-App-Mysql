@@ -9,6 +9,7 @@ import { useState } from "react";
 
 const post = ({ post }) => {
   const liked = false;
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [commentOpen, setcommentOpen] = useState(false);
   return (
     <div className="shadow-xl rounded-[20px] bg-white text-black dark:text-white dark:bg-[#222]">
