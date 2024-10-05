@@ -13,11 +13,13 @@ import Rightbar from "./components/Rightbar";
 import Home from "./pages/home/home";
 import Profile from "./pages/profile/profile";
 import { useContext } from "react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import { AuthContext } from "./context/authContext";
 
 function App() {
   const { currentUser } = useContext(AuthContext);
+  const queryClient = new QueryClient();
 
   // eslint-disable-next-line react/prop-types
   const ProtectRoute = ({ children }) => {
@@ -29,16 +31,18 @@ function App() {
 
   const Layout = () => {
     return (
-      <div className="theme-dark">
-        <Navbar />
-        <div className="flex">
-          <Leftbar />
-          <div className="" style={{ flex: 6 }}>
-            <Outlet />
+      <QueryClientProvider client={queryClient}>
+        <div className="theme-dark">
+          <Navbar />
+          <div className="flex">
+            <Leftbar />
+            <div className="" style={{ flex: 6 }}>
+              <Outlet />
+            </div>
+            <Rightbar />
           </div>
-          <Rightbar />
         </div>
-      </div>
+      </QueryClientProvider>
     );
   };
 

@@ -35,7 +35,7 @@ const stories = () => {
     <div className="flex gap-2.5 h-[250px] text-white text-sm font-medium">
       <div className="flex-1 rounded-xl overflow-hidden relative">
         <img
-          src={`/${currentUser.image}`}
+          src={currentUser.profilePicture}
           alt="stoyImage"
           className="w-[100%] h-[100%] object-cover"
         />

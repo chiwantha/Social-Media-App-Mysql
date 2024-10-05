@@ -27,7 +27,7 @@ const Comments = () => {
       <div className="flex items-center justify-between gap-5 my-[20px]">
         <img
           className="w-[40px] h-[40px] object-cover rounded-full"
-          src={`./${currentUser.image}`}
+          src={currentUser.profilePicture}
           alt=""
         />
         <input

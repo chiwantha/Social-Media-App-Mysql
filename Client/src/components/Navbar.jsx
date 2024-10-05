@@ -25,7 +25,9 @@ const Navbar = () => {
       {/* left */}
       <div className="flex items-center gap-7">
         <Link to="/home">
-          <span className="font-bold text-2xl text-blue-800">MY-STACK</span>
+          <span className="font-bold text-2xl text-blue-800">
+            MY-STACK-MEDIA
+          </span>
         </Link>
         <HomeOutlinedIcon />
         <div className="cursor-pointer" onClick={toggle}>
@@ -48,7 +50,7 @@ const Navbar = () => {
         <NotificationsOutlinedIcon />
         <div className="flex items-center gap-2 font-medium">
           <img
-            src={`/${currentUser.image}`}
+            src={currentUser.profilePicture}
             alt="UserProfile"
             className="w-[30px] h-[30px] rounded-full object-cover object-center"
           />

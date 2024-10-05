@@ -17,7 +17,7 @@ const post = ({ post }) => {
         <div className="flex items-center justify-between">
           <div className="flex gap-2.5 items-center">
             <img
-              src={post.profilePic}
+              src={post.profilePicture}
               className="w-[40px] h-[40px] object-cover rounded-full"
               alt="profileImage"
             />
@@ -32,11 +32,13 @@ const post = ({ post }) => {
         </div>
         <div className="my-5">
           <p>{post.desc}</p>
-          <img
-            src={post.img}
-            alt="postImage"
-            className="w-[100%] max-h-[500px] object-cover mt-5"
-          />
+          {post.img && (
+            <img
+              src={post.img}
+              alt="postImage"
+              className="w-[100%] max-h-[800px] object-center object-cover mt-5 rounded-lg"
+            />
+          )}
         </div>
         <div className="flex justify-between">
           <div

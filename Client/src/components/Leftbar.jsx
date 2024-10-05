@@ -90,7 +90,7 @@ const Leftbar = () => {
           {/* user */}
           <div className="flex items-center gap-2.5 font-medium">
             <img
-              src={`/${currentUser.image}`}
+              src={currentUser.profilePicture}
               alt="UserProfile"
               className="w-[30px] h-[30px] rounded-full object-cover object-center"
             />
